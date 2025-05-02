@@ -159,3 +159,15 @@ userInput.addEventListener('keypress', (e) => {
         // Calls `handleUserInput` to send the message.
     }
 });
+
+window.addEventListener('DOMContentLoaded', async () => {
+    const welcomePrompt = "Dê boas-vindas ao usuário de forma amigável e pergunte como pode ajudar.";
+
+    try {
+        const botMessage = await generateResponse(welcomePrompt);
+        addMessage(cleanMarkdown(botMessage), false);
+    } catch (error) {
+        console.error('Erro ao carregar mensagem inicial:', error);
+        addMessage("Desculpe, houve um problema ao iniciar a conversa.", false);
+    }
+});
