@@ -111,9 +111,22 @@ body {
 }
 
 @media (max-width: 480px) {
+    /* Stop the body from centering the chat container on small screens */
+    body {
+        display: block; /* Override display: flex */
+        align-items: initial; /* Override align-items: center */
+        /* You might not need to change justify-content or height,
+           but including them ensures centering is fully disabled */
+        justify-content: initial;
+        height: auto;
+    }
+
+    /* Make the chat container fill the screen */
     .chat-container {
-        height: 100vh;
-        border-radius: 0;
+        height: 100vh;     /* Full viewport height */
+        max-width: 100%;  /* Full viewport width */
+        border-radius: 0; /* Remove rounded corners */
+        box-shadow: none;   /* Optional: remove shadow */
     }
 }
 
