@@ -6,7 +6,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100dvh;
     color: #e0e0e0;
 }
 
@@ -111,22 +111,15 @@ body {
 }
 
 @media (max-width: 480px) {
-    /* Stop the body from centering the chat container on small screens */
-    body {
-        display: block; /* Override display: flex */
-        align-items: initial; /* Override align-items: center */
-        /* You might not need to change justify-content or height,
-           but including them ensures centering is fully disabled */
-        justify-content: initial;
-        height: auto;
+    .chat-container {
+        height: 100dvh; /* usa a altura da viewport visível, respeitando teclado e barra do navegador */
+        border-radius: 0;
     }
 
-    /* Make the chat container fill the screen */
-    .chat-container {
-        height: 100vh;     /* Full viewport height */
-        max-width: 100%;  /* Full viewport width */
-        border-radius: 0; /* Remove rounded corners */
-        box-shadow: none;   /* Optional: remove shadow */
+    body {
+        align-items: stretch;
+        justify-content: flex-start;
+        height: auto; /* permite que a altura seja controlada pela chat-container */
     }
 }
 
