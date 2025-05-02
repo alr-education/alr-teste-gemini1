@@ -3,9 +3,6 @@ body {
     margin: 0;
     padding: 0;
     background-color: #1a1a1a;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100dvh;
     color: #e0e0e0;
 }
@@ -112,14 +109,8 @@ body {
 
 @media (max-width: 480px) {
     .chat-container {
-        height: 100dvh; /* usa a altura da viewport visível, respeitando teclado e barra do navegador */
+        height: 100dvh;
         border-radius: 0;
-    }
-
-    body {
-        align-items: stretch;
-        justify-content: flex-start;
-        height: auto; /* permite que a altura seja controlada pela chat-container */
     }
 }
 
