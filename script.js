@@ -160,14 +160,16 @@ userInput.addEventListener('keypress', (e) => {
     }
 });
 
-window.addEventListener('DOMContentLoaded', async () => {
-    const welcomePrompt = "Dê boas-vindas ao usuário de forma amigável e pergunte como pode ajudar.";
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(async () => {
+        const welcomePrompt = "Dê boas-vindas ao usuário de forma amigável e pergunte como pode ajudar.";
 
-    try {
-        const botMessage = await generateResponse(welcomePrompt);
-        addMessage(cleanMarkdown(botMessage), false);
-    } catch (error) {
-        console.error('Erro ao carregar mensagem inicial:', error);
-        addMessage("Desculpe, houve um problema ao iniciar a conversa.", false);
-    }
+        try {
+            const botMessage = await generateResponse(welcomePrompt);
+            addMessage(cleanMarkdown(botMessage), false);
+        } catch (error) {
+            console.error('Erro ao carregar mensagem inicial:', error);
+            addMessage("Desculpe, houve um problema ao iniciar a conversa.", false);
+        }
+    }, 100); // Espera 100ms para garantir que tudo esteja carregado
 });
