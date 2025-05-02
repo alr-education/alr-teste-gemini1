@@ -71,41 +71,30 @@ function cleanMarkdown(text) {
 }
 
 function addMessage(message, isUser) {
-// Defines a function `addMessage` to add a new message to the chat display. It takes the `message` (text) and `isUser` (boolean indicating whether the message is from the user or the bot).
     const messageElement = document.createElement('div');
     messageElement.classList.add('message');
-    // Creates a new `div` element for the message and adds the 'message' CSS class.
-
     messageElement.classList.add(isUser ? 'user-message' : 'bot-message');
-    // Adds a class based on whether the message is from the user ('user-message') or the bot ('bot-message').
 
     const profileImage = document.createElement('img');
     profileImage.classList.add('profile-image');
-    // Creates an image element for the profile picture (either the user or the bot) and adds the 'profile-image' CSS class.
-
     profileImage.src = isUser ? 'user.jpg' : 'bot.jpg';
-    // Sets the image source depending on whether it's a user or bot message ('user.jpg' or 'bot.jpg').
-
     profileImage.alt = isUser ? 'User' : 'Bot';
-    // Sets the alternate text for the image (for accessibility), either 'User' or 'Bot'.
 
     const messageContent = document.createElement('div');
     messageContent.classList.add('message-content');
-    // Creates a `div` element to hold the text content of the message and adds the 'message-content' CSS class.
-
-    messageContent.textContent = message;
-    // Sets the text content of the message.
 
     messageElement.appendChild(profileImage);
     messageElement.appendChild(messageContent);
-    // Appends the profile image and message content to the message element.
-
     chatMessages.appendChild(messageElement);
-    // Appends the complete message (with profile image and text) to the chat messages section.
-
     chatMessages.scrollTop = chatMessages.scrollHeight;
-    // Scrolls the chat to the bottom to ensure the latest message is visible.
+
+    if (isUser) {
+        messageContent.textContent = message;
+    } else {
+        typeText(messageContent, message);
+    }
 }
+
 
 async function handleUserInput() {
 // Defines an asynchronous function `handleUserInput` to process and handle the user’s input.
@@ -173,3 +162,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, 100); // Espera 100ms para garantir que tudo esteja carregado
 });
+
+function typeText(container, text, delay = 20) {
+    let index = 0;
+    function type() {
+        if (index < text.length) {
+            container.textContent += text.charAt(index);
+            index++;
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            setTimeout(type, delay);
+        }
+    }
+    type();
+}
+
