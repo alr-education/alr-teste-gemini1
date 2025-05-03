@@ -23,7 +23,6 @@ body {
     display: flex;
     flex-direction: column;
     height: 90vh;
-    margin-bottom: 60px;
 }
 
 .chat-header {
@@ -41,6 +40,7 @@ body {
 .chat-messages {
     flex-grow: 1;
     padding: 20px;
+    padding-bottom: 80px;
     overflow-y: auto;
 }
 
