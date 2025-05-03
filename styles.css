@@ -192,3 +192,43 @@ body {
     color: #fff;
 }
 
+.tab-bar {
+    display: flex;
+    justify-content: space-around;
+    background-color: #1a1a1a;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 400px;
+    border-top: 1px solid #444;
+}
+
+.tab-button {
+    flex: 1;
+    background: none;
+    border: none;
+    color: #ccc;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.tab-button.active {
+    color: #4a90e2;
+    font-weight: bold;
+}
+
+.light-mode .tab-bar {
+    background-color: #f0f0f0;
+    border-top: 1px solid #ccc;
+}
+
+.light-mode .tab-button {
+    color: #555;
+}
+
+.light-mode .tab-button.active {
+    color: #4a90e2;
+}
+
+
