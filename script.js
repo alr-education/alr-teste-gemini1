@@ -7,6 +7,13 @@ const API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-
 const chatMessages = document.getElementById('chat-messages');
 // Gets the DOM element with the ID 'chat-messages', where the chat messages (user and bot) will be displayed.
 
+let autoScrollEnabled = true;
+
+chatMessages.addEventListener('scroll', () => {
+    const isAtBottom = chatMessages.scrollTop + chatMessages.clientHeight >= chatMessages.scrollHeight - 10;
+    autoScrollEnabled = isAtBottom;
+});
+
 const userInput = document.getElementById('user-input');
 // Gets the DOM element with the ID 'user-input', which is the input field where the user types their message.
 
@@ -165,14 +172,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function typeText(container, text, delay = 20) {
     let index = 0;
+
     function type() {
         if (index < text.length) {
             container.textContent += text.charAt(index);
             index++;
-            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            if (autoScrollEnabled) {
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
             setTimeout(type, delay);
         }
     }
+
     type();
 }
 
