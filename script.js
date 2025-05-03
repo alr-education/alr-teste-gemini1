@@ -197,3 +197,22 @@ themeToggle.addEventListener('click', () => {
     themeToggle.textContent = document.body.classList.contains('light-mode') ? '🌙' : '☀️';
 });
 
+function navigateTo(page) {
+    const buttons = document.querySelectorAll('.tab-button');
+    buttons.forEach(btn => btn.classList.remove('active'));
+
+    switch (page) {
+        case 'chat':
+            buttons[0].classList.add('active');
+            window.location.href = 'index.html'; // já é a página atual
+            break;
+        case 'perfil':
+            window.location.href = 'perfil.html';
+            break;
+        case 'jornada':
+            window.location.href = 'jornada.html';
+            break;
+    }
+}
+
+
