@@ -12,17 +12,21 @@
     <button class="tab-button" onclick="navigateTo('jornada')">Minha Jornada</button>
 </div>
 <body>
-    <button id="theme-toggle" class="theme-toggle">☀️</button>
-    <div class="chat-container">
-        <div class="chat-header">
-            <h1>Mike8</h1>
-        </div>
-        <div class="chat-messages" id="chat-messages"></div>
-        <div class="chat-input-container">
-            <input type="text" id="user-input" placeholder="Type your message...">
-            <button id="send-button">Send</button>
-        </div>
+  <div class="chat-container">
+    <div class="chat-header">
+      <h1>Chat</h1>
     </div>
-    <script src="script.js"></script>
+    <div id="chat-messages" class="chat-messages"></div>
+    <div class="chat-input-container">
+      <input type="text" id="user-input" placeholder="Digite sua mensagem...">
+      <button id="send-button">Enviar</button>
+    </div>
+    
+    <div class="tab-bar"> <!-- ISSO ESTÁ DENTRO da chat-container -->
+      <button class="tab-button active">Chat</button>
+      <button class="tab-button">Perfil</button>
+      <button class="tab-button">Jornada</button>
+    </div>
+  </div>
 </body>
 </html>
