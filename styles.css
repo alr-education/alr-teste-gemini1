@@ -23,6 +23,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 90vh;
+    margin-bottom: 60px;
 }
 
 .chat-header {
