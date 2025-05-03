@@ -82,15 +82,17 @@ function addMessage(message, isUser) {
     messageElement.classList.add('message');
     messageElement.classList.add(isUser ? 'user-message' : 'bot-message');
 
-    const profileImage = document.createElement('img');
-    profileImage.classList.add('profile-image');
-    profileImage.src = isUser ? 'user.jpg' : 'bot.jpg';
-    profileImage.alt = isUser ? 'User' : 'Bot';
-
     const messageContent = document.createElement('div');
     messageContent.classList.add('message-content');
 
-    messageElement.appendChild(profileImage);
+    if (!isUser) {
+        const profileImage = document.createElement('img');
+        profileImage.classList.add('profile-image');
+        profileImage.src = 'bot.jpg';
+        profileImage.alt = 'Bot';
+        messageElement.appendChild(profileImage);
+    }
+
     messageElement.appendChild(messageContent);
     chatMessages.appendChild(messageElement);
     chatMessages.scrollTop = chatMessages.scrollHeight;
