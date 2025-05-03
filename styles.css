@@ -10,6 +10,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100dvh;
+    overflow: hidden;
 }
 
 .chat-container {
@@ -115,8 +116,10 @@ body {
 
 @media (max-width: 480px) {
     body {
-        display: block;
-        height: auto;
+        display: flex;
+        flex-direction: column;
+        height: 100dvh;
+        overflow: hidden; /* lock scroll on mobile */
     }
 
     .chat-container {
